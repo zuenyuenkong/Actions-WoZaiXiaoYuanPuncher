@@ -141,9 +141,9 @@ class WoZaiXiaoYuanPuncher:
     def getResult(self):
         res = self.status_code
         if res == 1:
-            return "✅ 打卡成功"
+            return "健康打卡成功"
         elif res == 2:
-            return "✅ 你已经打过卡了，无需重复打卡"
+            return "你已经打过卡了，无需重复打卡"
         elif res == 3:
             return "❌ 打卡失败，当前不在打卡时间段内"
         elif res == 4:
@@ -238,7 +238,7 @@ class WoZaiXiaoYuanPuncher:
         if os.environ.get('BARK_TOKEN'):
             # bark 推送
             notifyToken = os.environ["BARK_TOKEN"]
-            req = "{}/{}/{}".format(notifyToken, "⏰ 我在校园打卡（健康打卡）结果通知", notifyResult)
+            req = "{}/{}/{}".format(notifyToken, "我在校园", notifyResult)
             requests.get(req)
             print("消息经bark推送成功")
         if os.environ.get("MIAO_CODE"):
